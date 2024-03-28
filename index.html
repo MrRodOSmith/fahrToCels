@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <h1>Fahrenheit To Celsius Converter</h1>
+
+    <div class = "wholediv top">
+        <p>Enter the number of degrees Fahrenheit and then click the button to convert temperature to Celsius.</p>
+
+        <form method="post" action="fakefile.php" id="convert">
+            <input type="text" name="temperature" id="temperature" placeholder="temperature">
+            <input type="submit" name="convert-temp" value="Convert Temperature">
+        </form>
+    </div>
+
+    <div class="wholediv bottom" id="result">
+        <h2 class="noshow">Calculated Result</h2>
+    </div>
+
+    <p id="instructions">Pres the "F" key to change to Fahrenheit conversion & press the "C" key to change to Celsius conversion.</p>
+
+    <script>
+        
+        // Grab elements from HTML
+
+        let temptype = "fahrenheit";
+        const topheading = document.querySelector('h1');
+        const instructions = document.querySelector('p');
+        const resultDiv = document.getElementById('result');
+        const form = document.getElementById('convert');
+
+        // Recognize key pressed (F or C)
+
+        document.addEventListener('keydown', function(event) {
+            var key = event.code;
+            // alert(`The key pressed is ${key}.`);
+            if(key==='KeyF') {
+                temptype = 'fahrenheit';
+                topheading.innerHTML = "Fahrenheit To Celsius Converter";
+                instructions.innerHTML = "Type in the degrees Fahrenheit and click the button to convert the temperature to Celsius."
+
+            } else if(key==='KeyC') {
+                temptype = 'celsius'
+                topheading.innerHTML = "Celsius to Fahrenheit Converter";
+                instructions.innerHTML = "Type in the degrees Celsius and click the button to convert the temperature to Fahrenheit."
+            }
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const temperature = parseFloat(document.getElementById('temperature').value);
+
+            if (temperature) {
+                // convert temperature from F to C or C to F
+                // get formulas for each conversion
+                // this will require an if/else within an if/else
+
+                if (temptype === 'fahrenheit') {
+                    const convert = ((temperature - 32) / (9/5)).toFixed(1);
+                    resultDiv.innerHTML = `${temperature}&degF converts to ${convert}&degC.`
+                } else {
+                    const convert = ((temperature * 1.8) + 32).toFixed(1);
+                    resultDiv.innerHTML = `${temperature}&degC converts to ${convert}&degF.`
+                };
+
+            } else {
+                resultDiv.innerHTML = "<h2>Please provide a valid number for the temperature!</h2>"
+            };
+        });
+
+
+    </script>
+    
+</body>
+</html>

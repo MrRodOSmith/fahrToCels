@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion Project</title>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <h2>Fahrenheit to Celsius & Celsius to Fahrenheit</h2>
+
+    <!-- Create instructions for how to navigate the converter -->
+    <h3>Enter your desired temperature that you would like to be converted. Then click the "Convert" button.</h3>
+
+    <!-- Create the input fields and labels for the user to input desired temperatures to be converted -->
+    <!-- Fahrenheit Data -->
+    <input id="fahr" type="number" for="fahr" placeholder="Enter Temperature" > degrees equals <input id="fahr-conv" type="text" for="fahr-to-cels"> Celsius
+    <br>
+    <label name="fahr">Fahrenheit Temperature</label>
+    <p></p>
+    <button id="to-cels">Convert To C</button>
+
+    <br><br>
+    <br><br>
+    
+    <!-- Celsius Data -->
+    <input id="cels" type="number" for="cels" placeholder="Enter Temperature" > degrees equals <input id="cels-conv" type="text" for="cels-to-fahr"> Fahrenheit
+    <br>
+    <label name="cels">Celsius Temperature</label>
+    <p></p>
+    <button id="to-fahr">Convert To F</button>
+
+    <p></p>
+    <p></p>
+
+    <!-- Clear button -->
+    <br>
+    <button id="clear">Clear All Fields</button>
+
+    <!-- Create text field that displays converted temperature -->
+    <!-- see code above -->
+    
+    <!-- Create buttons that call the functions to process conversion for Fahrenheit and for Celsius -->
+    <!-- see code above -->
+    
+    
+    <!-- Create a button to clear entries -->
+    <!-- see code above -->
+    
+    <script>
+
+    /* Grab elements from HTML to use in script */
+    var fahrTemp = parseFloat(document.getElementById('fahr').value);
+    var celsTemp = parseFloat(document.getElementById('cels'.value));
+    var fahrToCels = document.getElementById('fahr-conv');
+    var celsToFahr = document.getElementById('cels-conv');
+
+    var btnToCels = document.getElementById('to-cels');
+    var btnToFahr = document.getElementById('to-fahr');
+    var btnClearAll = document.getElementById('clear');
+
+        
+    /* Create functions for each of the conversions */
+
+    // Fahrenheit to Celsius Function
+
+    btnToCels.addEventListener('click', function(event){
+        event.preventDefault();
+
+        // const newFahr = fahrTemp.value;
+        // const newTemp = parseInt(newFahr)
+
+        if(fahrTemp){
+            var ftoc = ((fahrTemp - 32) / (9/5)).toFixed(2)
+            fahrToCels.innerHTML = "say hi"
+            console.log(ftoc)
+        } else {
+            alert('Please enter a valid temperature' + ftoc)
+        }
+    })
+
+
+
+
+
+
+
+
+
+    // Fahrenheit to Celsius Function
+    
+    </script>
+</body>
+</html>
